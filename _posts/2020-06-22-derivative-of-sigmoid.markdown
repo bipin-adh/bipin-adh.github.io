@@ -1,5 +1,4 @@
 ---
-layout: post
 author: "Bipin Adhikari"
 title: "Derivative of a Sigmoid Function" 
 date: 2020-06-22
