@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-22T17:49:24+05:45</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bipin Adhikari</title><subtitle>Data Science Portfolio</subtitle><author><name>Bipin Adhikari</name></author><entry><title type="html">Derivative of a Sigmoid Function</title><link href="http://localhost:4000/derivative-of-sigmoid/" rel="alternate" type="text/html" title="Derivative of a Sigmoid Function" /><published>2020-06-22T00:00:00+05:45</published><updated>2020-06-22T00:00:00+05:45</updated><id>http://localhost:4000/derivative-of-sigmoid</id><content type="html" xml:base="http://localhost:4000/derivative-of-sigmoid/">&lt;p&gt;In this post, we are going to learn indepth explanation about how the derivative of a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sigmoid function&lt;/code&gt; is calculated.&lt;/p&gt;
+
+&lt;p&gt;Following is the representation of a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sigmoid function&lt;/code&gt; :&lt;/p&gt;
+
+\[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Simplifying the equation for further process:&lt;/p&gt;
+
+\[\sigma'(z) = \frac{d} {dz} ( \mathrm{1} + e^\mathrm{-z} )^\mathrm{-1}\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 2&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now , we start working with the Right Hand Side.
+Matching the base and using the chain rule :&lt;/p&gt;
+
+\[\frac{d (\mathrm{1} + e^\mathrm{-z})^\mathrm{-1} } {d(\mathrm{1} + e^\mathrm{-z})} \times  \frac{d( 1 + e^\mathrm{-z} )} {d(z)}\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 3&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets consider the terms on either side of multiplication sign as first term and second term.
+Now , perform derivative on both the terms:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hints:&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;For first term , derivative of \(a^n\)  is  :
+\(n\times a^\mathrm{n-1}\)&lt;/li&gt;
+  &lt;li&gt;Simplify the second term for performing derivative.&lt;/li&gt;
+&lt;/ul&gt;
+
+\[-1 \times (1+ e^\mathrm{-z})^\mathrm{-1-1} \times [ \frac{d(1)}{d(z)} + \frac{d(e^\mathrm{-z})}{d(z)} ]\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 4&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Simplifying the 1st term by arranging numerator and denominator.&lt;/p&gt;
+
+&lt;p&gt;For second term,&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hint:&lt;/code&gt; Derivative of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; .(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Since, derivative of a constant is 0&lt;/code&gt;)&lt;/p&gt;
+
+\[\frac{d(e^\mathrm{-z})} {d(z)} = \frac{d(e^\mathrm{-z})} {d(\mathrm{-z})} \times \frac{d(\mathrm{-z})}{d(z)} = e^\mathrm{-z} \times -1\]
+
+&lt;p&gt;Hence, we get the following form :&lt;/p&gt;
+
+\[\frac{\mathrm{-1}}  { (1+e^\mathrm{-z})^\mathrm{2} } \times [0 + -e^\mathrm{-z}]\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 5&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Simplifying the above equation :&lt;/p&gt;
+
+\[\frac{e^\mathrm{-z}} { (1 + e^\mathrm{-z})^2 }\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 6&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Since, we know &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sigmoid&lt;/code&gt; function is :&lt;/p&gt;
+
+\[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\]
+
+&lt;p&gt;Hence, we can rewrite equation in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 5&lt;/code&gt; as:&lt;/p&gt;
+
+\[\sigma(z) \times \frac{e^\mathrm{-z}} {(1 + e^\mathrm{-z})}\]
+
+&lt;p&gt;If you are still confused how we got this eqn, replace the value of \(\sigma(z)\) and see how it is related to equation in step 5.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 7&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now , for further simplication of the above equation:
+Add 1 and subtract 1 , which cancels out eachother .&lt;/p&gt;
+
+\[\sigma(z) \times \frac{(e^\mathrm{-z} + 1 -1)}{(1 + e^\mathrm{-z})}\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 8&lt;/code&gt;&lt;/p&gt;
+
+\[\sigma(z) \times [ \frac{(1 + e^\mathrm{-z})}{(1 + e^\mathrm{-z})}  -  \frac{1}{(1 + e^\mathrm{-z})} ]\]
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Step 9&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally , replacing \(\sigma(z)\) in the equation again we get the final form :&lt;/p&gt;
+
+\[\sigma(z) ( 1  -  \sigma(z) )\]
+
+&lt;h3 id=&quot;hence-&quot;&gt;Hence ,&lt;/h3&gt;
+
+&lt;p&gt;The derivative of a sigmoid function is :&lt;/p&gt;
+
+\[\sigma'(z) = \sigma(z) ( 1  -  \sigma(z) )\]</content><author><name>Bipin Adhikari</name></author><category term="machine learning" /><category term="mathematics" /><category term="sigmoid" /><summary type="html">Machine Learning , Mathematics , Sigmoid</summary></entry></feed>

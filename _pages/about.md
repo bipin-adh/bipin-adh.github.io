@@ -2,7 +2,8 @@
 title: "About"
 permalink: /about/
 header:
- image: "/images/bio-photo.jpg"
+ image: "/images/lowres_maths.jpg"
+
 ---
 
-I'm a senior data scientist with expertise on Computer Vision and NLP.
+I'm an aspiring data scientist with interest on Mathematics and Machine Learning who wants to expand into the big data field and build deeper engineering capabilities.
