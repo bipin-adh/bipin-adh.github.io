@@ -120,3 +120,5 @@ The derivative of a sigmoid function is :
 $$
 \sigma'(z) = \sigma(z) ( 1  -  \sigma(z) )
 $$
+
+Thank you for reading the article !!!
