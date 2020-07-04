@@ -1,0 +1,30 @@
+I"t<p><code class="language-plaintext highlighter-rouge">Note</code> : The data has been provided freely by Statsbomb .For further information ,go to their website to read the user agreement and github page for the data:</p>
+
+<ul>
+  <li><a href="https://github.com/statsbomb/open-data">Statsbomb Open Data</a></li>
+  <li><a href="https://statsbomb.com/academy/">Statsbomb Resource Centre</a></li>
+</ul>
+
+<h2 id="tools-used-">Tools Used :</h2>
+
+<ul>
+  <li>Python</li>
+  <li>Matplotlib</li>
+  <li>
+    <p>Following is the goal of this post :</p>
+  </li>
+  <li>Loading data into a table/dataframe.</li>
+  <li>Filtering the data to extract location coordinates.</li>
+  <li>Plotting a football pitch</li>
+  <li>Setting the coordinates in the pitch to visualize the shots and its direction.</li>
+</ul>
+
+<h2 id="credits-">Credits :</h2>
+
+<p>Thanks to the following amazing resources that was incredibly useful:</p>
+
+<ol>
+  <li>Friend of Tracking youtube channel : <a href="https://www.youtube.com/channel/UCUBFJYcag8j2rm_9HkrrA7w/videos">Friends of Tracking</a></li>
+  <li>Fc Python website : <a href="https://fcpython.com/">FC Python</a></li>
+</ol>
+:ET

@@ -1,0 +1,184 @@
+I"�7<h2 id="data-source-">Data Source :</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Note</code> : The data has been provided freely by Statsbomb .For further information ,go to their website to read the user agreement and github page for the data:</p>
+
+<ul>
+  <li><a href="https://github.com/statsbomb/open-data">Statsbomb Open Data</a></li>
+  <li><a href="https://statsbomb.com/academy/">Statsbomb Resource Centre</a></li>
+</ul>
+
+<ol>
+  <li>competitions - eg : UCL , worldcup , etc</li>
+  <li>matches - take in competition id and see the matches of the required competition.</li>
+  <li>events - take match id and visualize and analyze all the detailed events of every min (passes, shots,build up play,etc)</li>
+</ol>
+
+<h2 id="tools-used-">Tools Used :</h2>
+
+<ul>
+  <li>Python</li>
+  <li>Matplotlib</li>
+  <li>Pandas</li>
+  <li>FcPython library (for creating football pitch) <code class="language-plaintext highlighter-rouge">Note: Check the end of the article for the link</code></li>
+</ul>
+
+<h2 id="following-is-the-goal-of-this-post-">Following is the goal of this post :</h2>
+
+<ul>
+  <li>Loading data into a table/dataframe.</li>
+  <li>Filtering the data to extract location coordinates.</li>
+  <li>Plotting a football pitch</li>
+  <li>Setting the coordinates in the pitch to visualize the shots and its direction.</li>
+</ul>
+
+<h2 id="lets-start-">Let’s start :</h2>
+
+<ul>
+  <li>Let’s start by importing the required python libraries:</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">FCPython</span> <span class="kn">import</span> <span class="n">createPitch</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Next, we will need to load the data from the directory where we have saved and create a dataframe out of it (<code class="language-plaintext highlighter-rouge">competitions.json</code>).</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Note: Read statsbomb sites and github page for the use of the data as mentioned above.</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># point to local directory of football data. (Change the location to your own)
+</span><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="s">'../statsbomb-data/open-data/data'</span>
+
+<span class="c1"># Load the competition file .
+# Create a dataframe of the json file
+</span><span class="n">competitions_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">BASE_DIR</span> <span class="o">+</span> <span class="s">'/competitions.json'</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>This is how it looks in a dataframe:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># head() will give the first 5 row.
+</span><span class="n">competitions_df</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>    </div>
+    <!-- ![Output](../images/competition.png){ width: 200px; } -->
+    <p><img src="../images/spurs-vs-lfc/competition.png" width="800" /></p>
+  </li>
+  <li>Now, we can see the competition id for the required match <code class="language-plaintext highlighter-rouge">Spurs vs Liverpool</code> is 16.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># UEFA Champions League 2018/2019 has competition ID = 16
+</span><span class="n">competition_id</span> <span class="o">=</span> <span class="mi">16</span>
+</code></pre></div></div>
+<ul>
+  <li>Load the match <code class="language-plaintext highlighter-rouge">spurs vs lfc </code> using the competition id :</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load spurs vs liverpool json file from the list of final matches(json) of Champions League. 
+</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="o">+</span><span class="s">'/matches/'</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">competition_id</span><span class="p">)</span><span class="o">+</span><span class="s">'/4.json'</span><span class="p">)</span>
+
+<span class="c1"># Champions league final id : Spurs vs Liverpool
+</span><span class="n">match_id</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="s">'match_id'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+</code></pre></div></div>
+<ul>
+  <li>Next, Let’s define pitch parameters.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Size of the pitch in yards.
+</span><span class="n">pitchLengthX</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">pitchWidthY</span> <span class="o">=</span> <span class="mi">80</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p>Note: length = 120 yards , width = 80 yards (Statsbomb data default pitch unit is in yards.)</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="defining-our-required-team">Defining our Required team:</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">home_team_required</span> <span class="o">=</span> <span class="s">"Liverpool"</span>
+<span class="n">away_team_required</span> <span class="o">=</span> <span class="s">"Tottenham Hotspur"</span>
+</code></pre></div></div>
+<h3 id="loading-in-the-full-match-events-using-the-match_id-we-defined-above">Loading in the full match events (Using the match_id we defined above)</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load in all match events data.
+</span><span class="n">spursVsLfc_match</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">match_id</span><span class="p">)</span><span class="o">+</span><span class="s">'.json'</span> 
+
+<span class="c1"># Creating a dataframe from the json above.
+</span><span class="n">events_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="o">+</span><span class="s">'/events/'</span><span class="o">+</span><span class="n">spursVsLfc_match</span><span class="p">)</span>
+</code></pre></div></div>
+<blockquote>
+  <p>Columns in the <code class="language-plaintext highlighter-rouge">events_df</code> = [‘id’, ‘index’, ‘period’, ‘timestamp’, ‘minute’, ‘second’, ‘type’,
+       ‘possession’, ‘possession_team’, ‘play_pattern’, ‘team’, ‘duration’,
+       ‘tactics’, ‘related_events’, ‘player’, ‘position’, ‘location’, ‘pass’,
+       ‘carry’, ‘ball_receipt’, ‘under_pressure’, ‘duel’, ‘foul_committed’,
+       ‘shot’, ‘goalkeeper’, ‘off_camera’, ‘clearance’, ‘foul_won’,
+       ‘interception’, ‘ball_recovery’, ‘counterpress’, ‘out’, ‘dribble’,
+       ‘50_50’, ‘substitution’, ‘block’, ‘shot_type’]</p>
+</blockquote>
+
+<h3 id="list-of-functions-">List of functions :</h3>
+
+<p>We will be using following functions to filter our data:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+Function for type of play: goal, pass,etc
+"""</span>
+<span class="k">def</span> <span class="nf">get_shot_type</span><span class="p">(</span><span class="n">type_dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">type_dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'name'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_team_name</span><span class="p">(</span><span class="n">possession_team_dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">possession_team_dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'name'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_shot_end_location</span><span class="p">(</span><span class="n">shot_details_dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">shot_details_dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'end_location'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_shot_outcome</span><span class="p">(</span><span class="n">shot_details_dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">shot_details_dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'outcome'</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">get_shot_type</span><span class="p">(</span><span class="n">shot_details_dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">shot_details_dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'type'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="lets-start-filtering-the-dataframe-using-the-above-functions">Lets start filtering the dataframe using the above functions:</h3>
+
+<p>First of all, create a new column and add the type of shot for each row. Then, take only those row which consists of <code class="language-plaintext highlighter-rouge">shot_type = shot</code>. Finally ,extract the shots in the first half only( Our goal of this article is to visualize only the shots in first half).</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># unpacking type column for knowing type of play.
+</span><span class="n">events_df</span><span class="p">[</span><span class="s">'shot_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">events_df</span><span class="p">[</span><span class="s">'type'</span><span class="p">].</span><span class="nb">apply</span><span class="p">(</span><span class="n">get_shot_type</span><span class="p">)</span>
+
+<span class="n">total_shots_df</span> <span class="o">=</span> <span class="n">events_df</span><span class="p">[</span><span class="n">events_df</span><span class="p">[</span><span class="s">'shot_type'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'Shot'</span><span class="p">]</span>
+
+<span class="c1"># All shots in first half of the game. period = 1 .. 2nd half means period = 2
+</span><span class="n">first_half_shots</span> <span class="o">=</span> <span class="n">total_shots_df</span><span class="p">[</span><span class="n">total_shots_df</span><span class="p">[</span><span class="s">'period'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
+<p>Perform following operation to check the dataframe table:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># will print the first 5 rows.
+</span><span class="n">first_half_shots</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Now, We need following shot details:</p>
+
+<ul>
+  <li>location of the shot</li>
+  <li>end location of the shot</li>
+  <li>team in possesion</li>
+  <li>outcome of the shot</li>
+</ul>
+
+<p>Here is how it is done:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># start location 
+</span><span class="n">shot_details_1st_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">first_half_shots</span><span class="p">[</span><span class="s">'location'</span><span class="p">])</span>
+
+<span class="c1"># contains all the shot details like end location ,outcome and expected goal created by statsbomb.
+</span><span class="n">shot_details_1st_df</span><span class="p">[</span><span class="s">'shot_details'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">first_half_shots</span><span class="p">[</span><span class="s">'shot'</span><span class="p">])</span>
+
+<span class="c1"># team in possesion
+</span><span class="n">shot_details_1st_df</span><span class="p">[</span><span class="s">'team'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">first_half_shots</span><span class="p">[</span><span class="s">'possession_team'</span><span class="p">].</span><span class="nb">apply</span><span class="p">(</span><span class="n">get_team_name</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="credits-">Credits :</h2>
+
+<p>Thanks to the following amazing resources that was incredibly useful:</p>
+
+<ol>
+  <li>Friend of Tracking youtube channel : <a href="https://www.youtube.com/channel/UCUBFJYcag8j2rm_9HkrrA7w/videos">Friends of Tracking</a></li>
+  <li>Fc Python website : <a href="https://fcpython.com/">FC Python</a></li>
+</ol>
+:ET

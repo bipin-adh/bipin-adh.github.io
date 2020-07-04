@@ -1,0 +1,16 @@
+I"·<p><code class="language-plaintext highlighter-rouge">Note</code> : The data has been provided freely by Statsbomb .For further information ,go to their website to read the user agreement and github page for the data:</p>
+
+<ul>
+  <li><a href="https://github.com/statsbomb/open-data">Statsbomb Open Data</a></li>
+  <li><a href="https://statsbomb.com/academy/">Statsbomb Resource Centre</a></li>
+</ul>
+
+<p>Following is the goal of this post :</p>
+
+<ul>
+  <li>Loading data into a table/dataframe.</li>
+  <li>Filtering the data to extract location coordinates.</li>
+  <li>Plotting a football pitch</li>
+  <li>Setting the coordinates in the pitch to visualize the shots and its direction.</li>
+</ul>
+:ET

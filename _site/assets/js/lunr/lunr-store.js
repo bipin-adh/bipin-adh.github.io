@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Bipin Adhikari</title>
-<meta name="description" content="var store = [{         “title”: “Derivative of a Sigmoid Function”,         “excerpt”:”In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\] Step 1 Simplifying the equation for further process: \[\sigma’(z) = \frac{d} {dz} ( \mathrm{1}…”,”categories”: [],         “tags”: [“machine learning”,”mathematics”,”sigmoid”],         “url”: “http://localhost:4000/derivative-of-sigmoid/”,         “teaser”: null       }]">
+<meta name="description" content="var store = [{         “title”: “Derivative of a Sigmoid Function”,         “excerpt”:”In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\] Step 1 Simplifying the equation for further process: \[\sigma’(z) = \frac{d} {dz} ( \mathrm{1}…”,”categories”: [],         “tags”: [“machine learning”,”mathematics”,”sigmoid”],         “url”: “http://localhost:4000/derivative-of-sigmoid/”,         “teaser”: null       },{         “title”: “Shot Visualization of Spurs vs Liverpool UCL Final Using Python”,         “excerpt”:”Eng goal : This is what we want to achieve at the end of this article: Colors for shot type: goal : red saved : green blocked : yellow yellow: wayward try Data Source : Note : The data has been provided freely by Statsbomb .For further information ,go to…”,”categories”: [],         “tags”: [“Python”,”Visualization”],         “url”: “http://localhost:4000/spurs-vs-lfc/”,         “teaser”: null       }]">
 
 
   <meta name="author" content="Bipin Adhikari">
@@ -23,7 +23,7 @@
 <meta property="og:url" content="http://localhost:4000/assets/js/lunr/lunr-store.js">
 
 
-  <meta property="og:description" content="var store = [{         “title”: “Derivative of a Sigmoid Function”,         “excerpt”:”In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\] Step 1 Simplifying the equation for further process: \[\sigma’(z) = \frac{d} {dz} ( \mathrm{1}…”,”categories”: [],         “tags”: [“machine learning”,”mathematics”,”sigmoid”],         “url”: “http://localhost:4000/derivative-of-sigmoid/”,         “teaser”: null       }]">
+  <meta property="og:description" content="var store = [{         “title”: “Derivative of a Sigmoid Function”,         “excerpt”:”In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\] Step 1 Simplifying the equation for further process: \[\sigma’(z) = \frac{d} {dz} ( \mathrm{1}…”,”categories”: [],         “tags”: [“machine learning”,”mathematics”,”sigmoid”],         “url”: “http://localhost:4000/derivative-of-sigmoid/”,         “teaser”: null       },{         “title”: “Shot Visualization of Spurs vs Liverpool UCL Final Using Python”,         “excerpt”:”Eng goal : This is what we want to achieve at the end of this article: Colors for shot type: goal : red saved : green blocked : yellow yellow: wayward try Data Source : Note : The data has been provided freely by Statsbomb .For further information ,go to…”,”categories”: [],         “tags”: [“Python”,”Visualization”],         “url”: “http://localhost:4000/spurs-vs-lfc/”,         “teaser”: null       }]">
 
 
 
@@ -190,6 +190,8 @@
           
         
           
+            <li><a href="https://twitter.com/bpn_torres" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
         
           
         
@@ -267,7 +269,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <meta itemprop="description" content="var store = [{        “title”: “Derivative of a Sigmoid Function”,        “excerpt”:”In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\] Step 1 Simplifying the equation for further process: \[\sigma’(z) = \frac{d} {dz} ( \mathrm{1}…”,”categories”: [],        “tags”: [“machine learning”,”mathematics”,”sigmoid”],        “url”: “http://localhost:4000/derivative-of-sigmoid/”,        “teaser”: null      }]">
+    <meta itemprop="description" content="var store = [{        “title”: “Derivative of a Sigmoid Function”,        “excerpt”:”In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\] Step 1 Simplifying the equation for further process: \[\sigma’(z) = \frac{d} {dz} ( \mathrm{1}…”,”categories”: [],        “tags”: [“machine learning”,”mathematics”,”sigmoid”],        “url”: “http://localhost:4000/derivative-of-sigmoid/”,        “teaser”: null      },{        “title”: “Shot Visualization of Spurs vs Liverpool UCL Final Using Python”,        “excerpt”:”Eng goal : This is what we want to achieve at the end of this article: Colors for shot type: goal : red saved : green blocked : yellow yellow: wayward try Data Source : Note : The data has been provided freely by Statsbomb .For further information ,go to…”,”categories”: [],        “tags”: [“Python”,”Visualization”],        “url”: “http://localhost:4000/spurs-vs-lfc/”,        “teaser”: null      }]">
     
     
 
@@ -286,6 +288,12 @@
         "excerpt":"In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \\[\\sigma(z) = \\frac{\\mathrm{1}} {(\\mathrm{1} + e^\\mathrm{-z} )}\\] Step 1 Simplifying the equation for further process: \\[\\sigma'(z) = \\frac{d} {dz} ( \\mathrm{1}...","categories": [],
         "tags": ["machine learning","mathematics","sigmoid"],
         "url": "http://localhost:4000/derivative-of-sigmoid/",
+        "teaser": null
+      },{
+        "title": "Shot Visualization of Spurs vs Liverpool UCL Final Using Python",
+        "excerpt":"Eng goal : This is what we want to achieve at the end of this article: Colors for shot type: goal : red saved : green blocked : yellow yellow: wayward try Data Source : Note : The data has been provided freely by Statsbomb .For further information ,go to...","categories": [],
+        "tags": ["Python","Visualization"],
+        "url": "http://localhost:4000/spurs-vs-lfc/",
         "teaser": null
       }]
 

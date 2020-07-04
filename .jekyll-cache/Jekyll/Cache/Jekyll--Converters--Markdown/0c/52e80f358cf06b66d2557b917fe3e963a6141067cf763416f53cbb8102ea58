@@ -1,0 +1,14 @@
+I"�<p>var store = [{
+        “title”: “Derivative of a Sigmoid Function”,
+        “excerpt”:”In this post, we are going to learn indepth explanation about how the derivative of a sigmoid function is calculated. Following is the representation of a sigmoid function : \[\sigma(z) = \frac{\mathrm{1}} {(\mathrm{1} + e^\mathrm{-z} )}\] Step 1 Simplifying the equation for further process: \[\sigma’(z) = \frac{d} {dz} ( \mathrm{1}…”,”categories”: [],
+        “tags”: [“machine learning”,”mathematics”,”sigmoid”],
+        “url”: “http://localhost:4000/derivative-of-sigmoid/”,
+        “teaser”: null
+      },{
+        “title”: “Shot Visualization of Spurs vs Liverpool UCL Final Using Python”,
+        “excerpt”:”Note : The data has been provided freely by Statsbomb .For further information ,go to their website to read the user agreement and github page for the data: Statsbomb Open Data Statsbomb Resource Centre Tools Used : Python Matplotlib Pandas FcPython library (for creating football pitch) Following is the goal…”,”categories”: [],
+        “tags”: [“Python”,”Visualization”],
+        “url”: “http://localhost:4000/spurs-vs-lfc/”,
+        “teaser”: null
+      }]</p>
+:ET
