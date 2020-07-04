@@ -7,7 +7,7 @@ excerpt: "Python, Visualization , Sports"
 mathjax: "true"
 
 ---
-## Eng goal :
+## Desired Output :
 * This is what we want to achieve at the end of this article:
 
 * Colors for shot type:
