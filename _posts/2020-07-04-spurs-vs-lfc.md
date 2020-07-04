@@ -1,6 +1,6 @@
 ---
 author: "Bipin Adhikari"
-title: "Shot Visualization of Spurs vs Liverpool UCL Final Using Python" 
+title: "Shot Visualization of Spurs vs Liverpool (First Half) UCL Final Using Python" 
 date: 2020-07-04
 tags: [Python,Visualization]
 excerpt: "Python, Visualization , Sports"
