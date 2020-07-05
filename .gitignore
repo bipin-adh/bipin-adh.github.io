@@ -1,0 +1,9 @@
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+ 
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
